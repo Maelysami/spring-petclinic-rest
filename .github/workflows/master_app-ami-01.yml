@@ -35,17 +35,19 @@ jobs:
       url: ${{ secrets.WEBAPP_URL }}
     permissions:
       id-token: write #This is required for requesting the JWT
-   
+  
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: java-app
-        
+      
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7364886A1E814897A69DAC821E308BB3 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A6480FCACAB6443292702733722661D5 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2F83807A32B34A67B26DCF936F3FC803 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
