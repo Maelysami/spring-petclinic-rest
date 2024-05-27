@@ -32,7 +32,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ secrets.AZURE_WEBAPP_URL }}
+      url: 'https://app-ami-01.azurewebsites.net' # Spécifiez directement l'URL ici
     permissions:
       id-token: write #This is required for requesting the JWT
   
